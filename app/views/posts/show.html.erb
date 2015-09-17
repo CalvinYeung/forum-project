@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+POST SHOW HTML ERB
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= markdown("#{@post.content}") %>
+</p>
+
+
+<h1>comments below</h1>
+  <% @comments.each do |reply| %>
+  <% x = reply.post_reply %>
+<ul>
+    <li><%= markdown(x) %> </li>
+</ul>
+  <% end %>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @post.likes %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.first_name %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

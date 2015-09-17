@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= "#{@comment.post.title}" %>
+</p>
+
+<p>
+  <strong>Post reply:</strong>
+  <%= @comment.post_reply %>
+</p>
+
+<p>
+  <strong>Posted By:</strong>
+  <%= "#{@comment.user.first_name} #{@comment.user.last_name}" %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
+
+
+
+
