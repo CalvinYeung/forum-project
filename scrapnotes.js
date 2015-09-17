@@ -12,3 +12,7 @@ rails generate scaffold Post title:string description:string content:text likes:
 rails generate scaffold Comment post_reply:text post:references user:references
 
 http://104.236.8.84:3000/
+
+removed links under POST SHOW HTML ERB
+
+comment
