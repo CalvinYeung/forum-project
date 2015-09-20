@@ -10,13 +10,37 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post_id = Post.find(params[:id])
-    @comments = Comment.where(post_id: @post_id)
+    @post = Post.find(params[:id])
+    @new_comment = @post.comments.new    
+  end
+
+  def like
+      @post = Post.find(params[:id])
+      @post.likes +=1
+      @post.save
+      redirect_to post_url
+  end
+
+  def dislike
+      @post = Post.find(params[:id])
+      @post.likes -= 1
+      @post.save
+      redirect_to post_url
+  end
+
+  def order_by_like
+      @posts = Post.order(likes: :desc)
+      render :index
+  end
+
+  def order_by_comment
+      @posts = Post.joins(:comments).group("posts.id").order("count(comments) desc")
+      render :index
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+      @post = Post.new
   end
 
   # GET /posts/1/edit

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-POST SHOW HTML ERB
+<h1>Post.Show.html</h1>
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -12,17 +12,15 @@ POST SHOW HTML ERB
 
 <p>
   <strong>Content:</strong>
-  <%= markdown("#{@post.content}") %>
+  @post.content
 </p>
 
-
 <h1>comments below</h1>
-  <% @comments.each do |reply| %>
-  <% x = reply.post_reply %>
 <ul>
-    <li><%= markdown(x) %> </li>
-</ul>
+  <% @post.comments.each do |reply| %>
+    <li><%= reply.post_reply %></li>
   <% end %>
+</ul>
 
 <p>
   <strong>Likes:</strong>
@@ -31,8 +29,39 @@ POST SHOW HTML ERB
 
 <p>
   <strong>User:</strong>
-  <%= @post.user.first_name %>
+  <%= @post.user.full_name %>
 </p>
+
+<%= form_for(@new_comment) do |f| %>
+  <% if @new_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @new_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :post_reply %><br>
+    <%= f.text_area :post_reply %>
+  </div>
+    
+  <%= f.hidden_field :post_id, value: @new_comment.post.id %>
+  <%= f.hidden_field :user_id, value: @new_comment.post.user.id %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+<%= link_to 'Like', like_path(@post)%>
+<%= link_to 'Dislike', dislike_path(@post)%>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

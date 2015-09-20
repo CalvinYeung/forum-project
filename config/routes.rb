@@ -4,10 +4,18 @@ Rails.application.routes.draw do
   resources :users
 
   get '/' => 'users#login'
+
   post '/login' => 'users#login_post'
 
   get '/logout' => 'users#logout'
 
+  get '/post/:id/likes' => 'posts#like', as: :like
+
+  get '/post/:id/dislikes' => 'posts#dislike', as: :dislike
+
+  get '/posts_ordered_by_likes' => 'posts#order_by_like'
+
+  get '/posts_ordered_by_comments' => 'posts#order_by_comment'
   # get '/users/:id' => 'users#show'
 
   # get '/login' => 'users#login'
