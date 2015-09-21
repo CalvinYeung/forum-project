@@ -1,66 +1,63 @@
 <p id="notice"><%= notice %></p>
-<h1>Post.Show.html</h1>
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="postShow">
+  <p id="postShowTitle">
+    <%= @post.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
+<div class="postShowContentDiv">
   <strong>Content:</strong>
-  @post.content
-</p>
+  <p>
+    <%= @post.content %>
+  </p>
+</div>
 
-<h1>comments below</h1>
+  <h1>comments below</h1>
 
-<ul>
-  <% @post.comments.each do |reply| %>
-    <li><%= reply.post_reply %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @post.comments.each do |reply| %>
+      <li><%= reply.post_reply %></li>
+    <% end %>
+  </ul>
 
-<p>
-  <strong>Likes:</strong>
-  <%= @post.likes %>
-</p>
+  <p>
+    <strong>Likes:</strong>
+    <%= @post.likes %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.full_name %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @post.user.full_name %>
+  </p>
 
-<%= form_for(@new_comment) do |f| %>
-  <% if @new_comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  <%= form_for(@new_comment) do |f| %>
+    <% if @new_comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% @new_comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @new_comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :post_reply %><br>
+      <%= f.text_area :post_reply %>
+    </div>
+      
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.hidden_field :user_id, value: @post.user.id %>
+    
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :post_reply %><br>
-    <%= f.text_area :post_reply %>
-  </div>
-    
-  <%= f.hidden_field :post_id, value: @post.id %>
-  <%= f.hidden_field :user_id, value: @post.user.id %>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= link_to 'Like', like_path(@post)%>
+  <%= link_to 'Dislike', dislike_path(@post)%>
 
-<%= link_to 'Like', like_path(@post)%>
-<%= link_to 'Dislike', dislike_path(@post)%>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</div>

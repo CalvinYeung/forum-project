@@ -16,11 +16,14 @@
 body {
 	background-image: url("http://uthmag.com/wp-content/uploads/2015/07/26.jpg");
 	background-size: cover;
-	color: white;
+
 }
+
+#underConstruction{}
 
 #forumTitle {
 	color:red;
+	font-family: 'Dancing Script', cursive;
 	text-align: center;
 	font-size: 60px;
 }
@@ -30,5 +33,5 @@ body {
 	float: right;
 }
 .banana {
-	
+
 }
