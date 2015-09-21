@@ -1,12 +1,12 @@
+<div class = "postIndex">
 <p id="notice"><%= notice %></p>
-POST INDEX HTML
+
 <h1>Listing Posts</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
       <th>Likes</th>
       <th># of Comments</th>
       <th>Created By</th>
@@ -17,14 +17,10 @@ POST INDEX HTML
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
+        <td><%= link_to post.title, post %></td>
         <td><%= post.likes %></td>
         <td><%= post.comments.length%></td>
         <td><%= post.user.full_name %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,5 +30,4 @@ POST INDEX HTML
 <%= link_to 'Order By likes,', posts_ordered_by_likes_path %>
 
 <%= link_to 'Order By Comments', posts_ordered_by_comments_path %>
-
-<%= link_to 'New Post', new_post_path %>
+</div>

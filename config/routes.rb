@@ -1,7 +1,7 @@
-Rails.application.routes.draw do
-  resources :comments 
+Rails.application.routes.draw do 
   resources :posts 
-  resources :users
+  resources :comments, :except => [:index]
+  resources :users, :except => [:index]
 
   get '/' => 'users#login'
 

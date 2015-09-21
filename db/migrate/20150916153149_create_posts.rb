@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.text :content
-      t.integer :likes
+      t.integer :likes , default: 0
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false

@@ -6,8 +6,27 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+	
 <body>
-TESTING THIS LAYOUT
+	<nav id= "homeNav">
+		<% if current_user %>
+			<h2>Logged in as:<%=  current_user.full_name%></h2>
+			<a href="/posts/new">Create A New Post</a>
+
+		<% elsif current_user == nil%>
+		<% end %>
+
+		<% if current_user == nil %>
+		<% elsif current_user %>
+			<%= link_to "Logout", logout_path%>
+		<% end %>
+	</nav>
+	<div class = 'banana'>
+		<iframe src="//giphy.com/embed/IB9foBA4PVkKA" width="80" height="74" frameBorder="0" class="giphy-embed"></iframe>
+	<h1 id="forumTitle">Calvin's Forum</h1>
+	</div>
+
+
 <%= yield %>
 
 </body>

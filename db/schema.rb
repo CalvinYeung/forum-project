@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20150916153156) do
     t.string   "title"
     t.string   "description"
     t.text     "content"
-    t.integer  "likes"
+    t.integer  "likes",       default: 0
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree

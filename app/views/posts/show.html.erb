@@ -16,6 +16,7 @@
 </p>
 
 <h1>comments below</h1>
+
 <ul>
   <% @post.comments.each do |reply| %>
     <li><%= reply.post_reply %></li>
@@ -50,15 +51,13 @@
     <%= f.text_area :post_reply %>
   </div>
     
-  <%= f.hidden_field :post_id, value: @new_comment.post.id %>
-  <%= f.hidden_field :user_id, value: @new_comment.post.user.id %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.hidden_field :user_id, value: @post.user.id %>
   
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-
 
 <%= link_to 'Like', like_path(@post)%>
 <%= link_to 'Dislike', dislike_path(@post)%>

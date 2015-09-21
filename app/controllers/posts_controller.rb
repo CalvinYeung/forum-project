@@ -4,6 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    if current_user == nil
+      redirect_to '/' 
+    end
+
     @posts = Post.all
   end
 
@@ -11,7 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @new_comment = @post.comments.new    
+    @new_comment = Comment.new    
   end
 
   def like
