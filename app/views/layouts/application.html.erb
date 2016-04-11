@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ForumProject</title>
+  <title>Chit-Chat Forum</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
 </head>
 	
 <body>
-	<img id="underConstruction" src="http://www.youarenotaloneptsdbc.ca/wp-content/uploads/2015/06/under_construction.png">
-	<nav id= "homeNav">
-		<% if current_user %>
-			<h2>Logged in as:<%=  current_user.full_name%></h2>
-			<a href="/posts/new">Create A New Post</a>
+<div class="container" id="navBar">
+	<div class="row">
 
-		<% elsif current_user == nil%>
-		<% end %>
+		<div class="col-md-10">
+			<h1 id="forumTitle">Chit-Chat Forum</h1>
+		</div>
 
-		<% if current_user == nil %>
-		<% elsif current_user %>
-			<%= link_to "Logout", logout_path%>
-		<% end %>
-	</nav>
-	<div class = 'banana'>
-		<iframe src="//giphy.com/embed/IB9foBA4PVkKA" width="80" height="74" frameBorder="0" class="giphy-embed"></iframe>
-	<h1 id="forumTitle">Calvin's Forum</h1>
+		<div class="col-md-2" id= "homeNav">
+			<% if current_user %>
+				<strong>Hey there, <%=  current_user.first_name%></strong></br>
+			<% elsif current_user == nil%>
+			<% end %>
+
+			<% if current_user == nil %>
+			<% elsif current_user %>
+				<%= link_to "Logout", logout_path%>
+			<% end %>
+		</div>
+
 	</div>
-
-
+</div>
 <%= yield %>
 
 </body>

@@ -1,34 +1,34 @@
 
-
-<p id="notice"><%= notice %></p>
-
-
-
-
-<div class="post">
-  <h3 class="insidepost" id="insidetitle">Title</h3>
-  <h3 class="insidepost" id="insidelikes">Likes</h3>
-  <h3 class="insidepost" id="insidecomments">Comments</h3>
-  <h3 class="insidepost" id="insidecreatedby">Created By</h3>
+<div class="container">
+  <div class="row sortButtons">
+      <a class= "btn btn-success"href="/posts/new">Create A New Post</a>
+  </div>
 </div>
 
-<div class = "postIndex">
-<table>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.title, post %></td>
-        <div class= "postAtt">
-          <td><%= post.likes %></td>
-          <td><%= post.comments.length%></td>
-          <td><%= post.user.full_name %></td>
-        </div>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container postIndexList">
+  <div class="row postIndexTopBar">
+      <h3 class="col-xs-8">Lets Chit-Chat!</h3>
+       <a class="btn btn-success col-xs-2" href="/posts_ordered_by_likes">Sort By Likes</a>
+      <a class="btn btn-danger col-xs-2" href="/posts_ordered_by_comments">Sort By comments</a>
+  </div>
 
-<br>
-<a id="orderByLike"href="/posts_ordered_by_likes">Order By Likes</a>
-<%= link_to 'Order By Comments', posts_ordered_by_comments_path %>
+  <div class="row">
+      <div class="col-md-12 postIndexListTable">
+      
+          <% @posts.each do |post| %>
+          
+              <div class="container postSingle">
+                <div class="row ">
+                  <h5 class="col-md-5"><%= link_to post.title, post %></h5>
+                  <h5 class="col-md-3"><%= post.user.full_name %></h5>
+                  <h5 class="col-md-2">Likes: <%= post.likes %></h5>
+                  <h5 class="col-md-2">Comments: <%= post.comments.length%></h5>
+                </div>
+              </div>
+         
+          <% end %>
+      </div>
+   
+  </div>
 </div>
+

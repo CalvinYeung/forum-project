@@ -2,92 +2,148 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.hrBar {
+    border: 0;
+    height: 3px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    width: 50%;
+}
 
 .post {
-
 	height: 80px;
 	margin-bottom: 1%;
 }
 
-.postShow {
-	color: white;
-	background: rgba(0, 0, 0, .5);
-	border-style: solid;
-    border-width: 5px;
-    border-color: blue;
-}
-
-#postShowTitle {
-	font-size: 60px;
-	text-align: center;
+.postBoxHeader {
 	color: blue;
 }
 
+.postIndexTopBar{
+    border-bottom:solid black 4px;
+
+	h3:nth-child(1){
+		margin-top: 4px;
+		text-align: left;
+	}
+
+	a {
+		margin-left: -1%;
+		margin-top: 3px;
+		position: relative;
+		padding-right: 105px;
+	}
+} 
+
+.postShow {
+	background: rgb(250, 250, 250);
+	border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+	height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+
+.postShowSections{
+	width: 100%;
+	height: 100%;
+}
+.postShowTitleSection {
+	min-height: 250px;
+	color: black;
+	font-family: 'Advent Pro', sans-serif;
+	position: relative;
+	text-align: center;
+	word-wrap: break-word;
+	
+	h1 {
+		font-size: 2em;
+	}
+
+	h5 {
+		font-size: 1.5em;
+	}
+}
+
+.postShowCommentSection {
+	font-family: 'Advent Pro', sans-serif;
+}
+
+.postComments {
+	font-size: 1.2em;
+}
 .newPost {
-	color: white;
+	color: black;
 	position: relative;
 	font-size: 20px;
 	text-align:center;
-	background: rgba(20, 52, 25, .5);
-	width:30%;
-	height: 300px;
-	margin: 0 auto;
+	background: rgb(250, 250, 250);
+	min-width: 250px;
 	border-style: solid;
-    border-width: 5px;
-    border-color: blue;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
-
-.postAtt {
-	margin-left: 10%;
-}
-
 .postShowContentDiv {
-	position: static;
-	top: 0%;
-	text-align: center;
-	padding-top: 1%;
-	height: 20px;
-	padding-bottom: 7%;
-	border-bottom: 20%;
-	border-top: 0%;
-	strong {
-	font-size: 30px;
 
-	}	
 }
 
-
-.insidepost {
-	float: left;
-	color: white;
-	width: 18%;
-	font-size: 30px;
-}
-
-#insidetitle {
-	margin-left: 7%;
-}
-
-#insidelikes {
-	margin-left: 20%;
-}
-
-.postIndex{
+.postIndexList{
+	font-family: 'Dosis', sans-serif;
 	font-size: 16px;
-	margin: 0 auto;
-	padding-left: 5%;
-	padding-top: .09%;
-	padding-bottom: 2%;
-	width: 90%;
+	width: 98%;
 	height: 100%;
-	color: white;
-	text-align: left;
-	background: rgba(0, 0, 0, .5);
+	color: black;
+	background: rgb(250, 250, 250);
 	border-style: solid;
-    border-width: 5px;
-    border-color: blue;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    text-transform: capitalize;
 }
 
-.postBoxHeader {
-	color: blue;
+.postIndexList a {
+
+}
+
+.postIndexListTable {
+	margin-left: -1.6%;
+}
+
+.postIndexListTableItem{
+	// border-bottom-width: 2px;
+	// border-color: black;
+	// border-style: solid;
+}
+
+.postSingle {
+	border-style: solid;
+    border-width: 1px;
+    border-bottom: black 1px;
+    h5:nth-child(1){
+    	font-size: 15px;
+    	word-wrap: break-word; 
+    	padding-left: 2%;
+    	font-family: 'Dosis', sans-serif;
+    	text-transform: capitalize;
+    }
+}
+.postSingle:hover { 
+    background-color: yellow;
+}
+.sortButtons {
+	margin-top: 0%;
+	min-width: 100%;
+	a {
+		min-width: 100%;
+	}
 }

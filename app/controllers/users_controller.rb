@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "Thank you for registering for Calvin's Forum" }
+        format.html { redirect_to @user, notice: "Thank you for registering for Chit-Chat Forum" }
         format.json { render :show, status: :created, location: @user }
         session[:user_id] = @user.id
       else

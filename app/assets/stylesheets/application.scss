@@ -13,27 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 body {
-	background-image: url("http://uthmag.com/wp-content/uploads/2015/07/26.jpg");
+	background-image: image-url("newspaperBackground.jpg");
 	background-size: cover;
-
 }
 
-#underConstruction{
-	height: 150px;
+#navBar {
+	width: 100%;
+	background-color: rgba(0,0,0,0.8);
 }
-
 #forumTitle {
-	color:red;
+	color:white;
 	font-family: 'Dancing Script', cursive;
 	text-align: center;
 	font-size: 60px;
+	line-height: 40px;
+	margin-left: 18%;
 }
 
 #homeNav{
-	color:blue;
+	color:white;
 	float: right;
-}
-.banana {
-
+	font-size: 20px;
+	font-family: 'Dancing Script', cursive;
+	margin-top: 1%;
+	margin-right: -3%;
 }

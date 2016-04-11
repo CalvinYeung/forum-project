@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width">
+
+	
+	<title>Useful :nth-child Recipes | CSS-Tricks</title>
+
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="CSS-Tricks Search">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/CssTricks">
+
+  <!--[if !IE]><!-->
+  <link rel="stylesheet" href="https://css-tricks.com/wp-content/themes/CSS-Tricks-14/style.css?v=1.5">
+  <!--<![endif]-->
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="https://css-tricks.com/wp-content/themes/CSS-Tricks-14/css/oldie.css">
+  <![endif]-->
+  <!--[if IE 9]>
+  <link rel="stylesheet" href="https://css-tricks.com/wp-content/themes/CSS-Tricks-14/style.css?v=1.5>
+  <![endif]-->
+
+				  
+  
+    
+  
+<!-- This site is optimized with the Yoast SEO plugin v3.1.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="I get a little giddy when I come across perfect uses for :nth-child or :nth-of-type (read about the difference). The better you understand them, the more css nerdgasms you get to have!"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://css-tricks.com/useful-nth-child-recipies/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Useful :nth-child Recipes | CSS-Tricks" />
+<meta property="og:description" content="I get a little giddy when I come across perfect uses for :nth-child or :nth-of-type (read about the difference). The better you understand them, the more css nerdgasms you get to have!" />
+<meta property="og:url" content="https://css-tricks.com/useful-nth-child-recipies/" />
+<meta property="og:site_name" content="CSS-Tricks" />
+<meta property="article:publisher" content="https://www.facebook.com/CSSTricks" />
+<meta property="article:section" content="Article" />
+<meta property="article:published_time" content="2011-06-16T04:02:21-04:00" />
+<meta property="article:modified_time" content="2012-10-18T10:04:16-04:00" />
+<meta property="og:updated_time" content="2012-10-18T10:04:16-04:00" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/5.png" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/6-10.png" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/1-5.png" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/159.png" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/odd.png" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/even.png" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/last.png" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2011/06/9.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="I get a little giddy when I come across perfect uses for :nth-child or :nth-of-type (read about the difference). The better you understand them, the more css nerdgasms you get to have!" />
+<meta name="twitter:title" content="Useful :nth-child Recipes | CSS-Tricks" />
+<meta name="twitter:site" content="@Real_CSS_Tricks" />
+<meta name="twitter:image" content="//css-tricks.com/wp-content/uploads/2011/06/5.png" />
+<meta name="twitter:creator" content="@chriscoyier" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="CSS-Tricks &raquo; Useful :nth-child Recipes Comments Feed" href="https://css-tricks.com/useful-nth-child-recipies/feed/" />
+<script>var markdownify = {"ajax_url":"\/wp-admin\/admin-ajax.php","nonce":"ca35e4d07b"};</script><script type='text/javascript' src='https://code.jquery.com/jquery-2.2.1.min.js'></script>
+<script type='text/javascript' src='https://css-tricks.com/wp-content/uploads/minqueue-cache/minqueue-0c113daa-148c2769.js'></script>
+<link rel='https://api.w.org/' href='https://css-tricks.com/wp-json/' />
+<link rel='shortlink' href='https://css-tricks.com/?p=9657' />
+<link rel="alternate" type="application/json+oembed" href="https://css-tricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcss-tricks.com%2Fuseful-nth-child-recipies%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://css-tricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcss-tricks.com%2Fuseful-nth-child-recipies%2F&#038;format=xml" />
+<!-- Better Art Direction Styles -->
+
+
+<style type='text/css'>img#wpstats{display:none}</style>  
+</head>
+
+<body class="single single-post postid-9657 single-format-standard">
+
+  <script>
+    (function(){
+      var bsa = document.createElement('script');
+         bsa.async = true;
+         bsa.src = "//s3.buysellads.com/ac/bsa.js";
+      (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+    })();
+  </script>
+
+  <header id="top" class="top">
+
+  <a href="/" class="logo-link">
+    <svg class="logomorph" xmlns="http://www.w3.org/2000/svg" viewBox="256 -32 620 180" width="300" height="85">
+  <g>
+    <path id="dash" d="M488.3 65.8h15.1c2.6 0 4.7-2.2 4.7-4.7 0-2.7-2.2-4.8-4.7-4.8h-15.1c-2.6 0-4.7 2.2-4.7 4.8-.1 2.5 2.1 4.7 4.7 4.7z"/>
+    <path id="k" d="M703.4 81.1c0 2.7 2.2 4.9 5 4.9 2.7 0 4.9-2.2 4.9-4.9V69.4l9.2-8.9 18.1 23.1c1 1.4 2.3 2.3 4.2 2.3 2.8 0 5-2.1 5-4.8 0-1.5-.6-2.5-1.4-3.5l-19-23.6 17.5-16.9c1.1-1 1.8-2.2 1.8-3.7 0-2.4-1.8-4.6-4.6-4.6-1.8 0-3 .6-4.1 1.9l-26.7 26.9V33.8c0-2.7-2.2-4.9-4.9-4.9-2.8 0-5 2.2-5 4.9v47.3z"/>
+    <path id="halfstar" class="st0" d="M733 64l-17.2-6.6 17.2-6.7c2.1-.9 4-2.6 4-5.3 0-3.1-2.6-5.7-5.7-5.7-1.6 0-2.8.5-4.3 1.7l-14.9 9.5 1.7-15.5c.5-3.6-1.9-6.4-5.3-6.4s-5.9 2.9-5.3 6.6v44c-.5 3.6 1.9 6.4 5.3 6.4 3.5 0 5.9-2.9 5.3-6.6L712.1 64l14.9 9.5c1.6 1 2.8 1.7 4.1 1.7 3.1 0 5.9-2.6 5.9-5.7 0-2.7-1.9-4.6-4-5.5z"/>
+    <path id="s2" class="st0" d="M457.8 53c-10.9-2.6-13.4-4.5-13.4-8.9v-.2c0-3.7 3.4-6.7 9.2-6.7 4.4 0 8.6 1.4 13 4.3.8.5 1.6.7 2.6.7 2.6 0 4.7-2 4.7-4.6 0-1.9-1-3.3-2.2-3.9-5.1-3.4-10.8-5.2-17.9-5.2-11.2 0-19.2 6.7-19.2 16.3v.2c0 10.4 6.8 13.9 18.7 16.8 10.5 2.4 12.7 4.6 12.7 8.6v.2c0 4.2-3.9 7.1-10 7.1s-11.1-2.1-15.8-5.8c-.6-.5-1.5-.9-2.9-.9-2.6 0-4.7 2-4.7 4.6 0 1.6.8 3 1.9 3.8 6.3 4.7 13.5 7.1 21.2 7.1 11.8 0 20.1-6.3 20.1-16.8v-.2c0-9.4-6.1-13.6-18-16.5z"/>
+    <path id="c1" class="st0" d="M371.1 70.9c-1.2 0-2.3.5-3 1.1-4.1 3.5-8.1 5.4-14.1 5.4-10.8 0-18.6-8.9-18.6-20v-.2c0-11 7.9-19.9 18.6-19.9 5.4 0 9.6 1.9 13.4 5.1.6.5 1.6 1 3 1 2.7 0 4.9-2.1 4.9-4.8 0-1.8-.9-3.1-1.9-3.9-4.9-3.8-10.6-6.4-19.3-6.4-17.1 0-29 13.1-29 29.1v.2c0 16.2 12.2 29 28.6 29 9.1 0 15.1-2.9 20.4-7.6.9-.8 1.6-2 1.6-3.5 0-2.5-2.1-4.6-4.6-4.6z"/>
+    <path id="s1" class="st0" d="M407.9 53c-10.9-2.6-13.4-4.5-13.4-8.9v-.2c0-3.7 3.4-6.7 9.2-6.7 4.4 0 8.6 1.4 13 4.3.8.5 1.6.7 2.6.7 2.6 0 4.7-2 4.7-4.6 0-1.9-1-3.3-2.2-3.9-5.1-3.4-10.8-5.2-17.9-5.2-11.2 0-19.2 6.7-19.2 16.3v.2c0 10.4 6.8 13.9 18.7 16.8 10.5 2.4 12.7 4.6 12.7 8.6v.2c0 4.2-3.9 7.1-10 7.1s-11.1-2.1-15.8-5.8c-.6-.5-1.5-.9-2.9-.9-2.6 0-4.7 2-4.7 4.6 0 1.6.8 3 1.9 3.8 6.3 4.7 13.5 7.1 21.2 7.1 11.8 0 20.1-6.3 20.1-16.8v-.2c0-9.4-6.1-13.6-18-16.5z"/>
+    <path id="t" class="st0" d="M549 29.3h-37.4c-2.6 0-4.6 2.1-4.6 4.6s2 4.6 4.6 4.6h13.7v42.6c0 2.7 2.3 4.9 5 4.9s5-2.2 5-4.9V38.5H549c2.5 0 4.5-2.1 4.5-4.6s-2-4.6-4.5-4.6z"/>
+    <path id="c2" class="st0" d="M688.4 70.9c-1.2 0-2.3.5-3 1.1-4.1 3.5-8.1 5.4-14.1 5.4-10.8 0-18.6-8.9-18.6-20v-.2c0-11 7.9-19.9 18.6-19.9 5.4 0 9.6 1.9 13.4 5.1.6.5 1.6 1 3 1 2.7 0 4.9-2.1 4.9-4.8 0-1.8-.9-3.1-1.9-3.9-4.9-3.8-10.6-6.4-19.3-6.4-17.1 0-29 13.1-29 29.1v.2c0 16.2 12.2 29 28.6 29 9.1 0 15.1-2.9 20.4-7.6.9-.8 1.6-2 1.6-3.5 0-2.5-2.1-4.6-4.6-4.6z"/>
+    <path id="r" class="st0" d="M587.9 29.3h-20.1c-2.8 0-5 2.2-5 5v46.8c0 2.7 2.2 4.9 5 4.9 2.7 0 4.9-2.2 4.9-4.9V66h12.5l13.7 17.5c1.1 1.5 2.6 2.6 4.8 2.6 2.4 0 4.7-1.9 4.7-4.6 0-1.5-.6-2.6-1.6-3.8L596 64.1c7.6-2.3 12.8-7.8 12.8-16.8v-.2c0-4.9-1.7-9.1-4.7-12.1-3.6-3.6-9.1-5.7-16.2-5.7zm10.8 18.5c0 5.7-4.5 9.4-11.6 9.4h-14.5V38.3H587c7.3 0 11.7 3.3 11.7 9.3v.2z"/>
+    <path id="i" class="st0" d="M625.7 28.9c-2.8 0-5 2.2-5 4.9v47.3c0 2.7 2.2 4.9 5 4.9 2.7 0 4.9-2.2 4.9-4.9V33.8c0-2.7-2.2-4.9-4.9-4.9z"/>
+    <path id="i2" class="st0" d="M625.7 28.9c-2.8 0-5 2.2-5 4.9v47.3c0 2.7 2.2 4.9 5 4.9 2.7 0 4.9-2.2 4.9-4.9V33.8c0-2.7-2.2-4.9-4.9-4.9z"/>
+  </g>
+  <g id="newer">
+    <g id="saturn">
+      <g id="satbody">
+        <circle id="body" class="st1" cx="672.1" cy="57.7" r="28.9"/>
+        <path id="shadow" class="st2" d="M672.1 86.6c-24.2-3.9-33.6-29.9-21.8-47.9-4.4 5.1-7.1 11.7-7.1 19 0 15.9 13 28.9 28.9 28.9z"/>
+        <path id="highlight" class="st3" d="M672.1 28.8c-6.3 0-12.1 2-16.8 5.4 3.3-1.3 6.9-2 10.6-2 16 0 28.9 12.9 28.9 28.9 0 9.7-4.1 19.5-12.1 23.5 10.7-4.2 18.3-14.7 18.3-26.9 0-16-12.9-28.9-28.9-28.9z"/>
+      </g>
+      <g id="rings">
+        <path id="ringB" class="st4" d="M618 80.9c1.4 2.8 24.6-2.5 57-14.9 7.1-2.7 54.2-22.1 51.9-26.9-.8-1.6-9.8-.3-28.3 5.3.5 1.1.9 2.2 1 2.4 8.7-2.6 13.3-3.5 13.7-2.6 1 2.7-24.1 13.4-41.7 19.7-23.8 8.4-43.3 14.1-43.9 12.4-.4-1 5.7-4.3 16.5-9-.2-.5-.4-1.2-.6-2-3.3 1.5-27.2 12.4-25.6 15.6z"/>
+        <path id="ringN" class="st5" d="M736.7 36.5c-1.2-3.3-16.6-.7-39.1 6.3.3.4.6 1.1.9 1.7l-.2-.5c10.3-3.1 31.4-9.3 32.9-6.2 2.8 5.6-50.1 26.5-56.1 28.8-6.8 2.6-57.8 21.2-60.5 15.7-1.9-3.8 24.8-15.8 28.7-17.6l.1.6c-.2-.7-.3-1.5-.4-2-21.2 9.4-34.7 17.7-33.5 20.9 1.7 4.5 31.5-2 66.6-15.2 35.2-13.2 62.3-28 60.6-32.5z"/>
+      </g>
+    </g>
+    <g id="burst">
+      <path id="l1" stroke-linecap="round" class="st6" d="M729.5 8.3v24.5"/>
+      <path id="l2" stroke-linecap="round" class="st6" d="M727.5 34l27-15.7"/>
+      <path id="l3" stroke-linecap="round" class="st6" d="M729 31.8l22.5 13.5"/>
+      <path id="l4" stroke-linecap="round" class="st6" d="M729.5 31.3v26"/>
+      <path id="l5" stroke-linecap="round" class="st6" d="M707.5 45.8l24.9-14.5"/>
+      <path id="l6" stroke-linecap="round" class="st6" d="M702.5 16.3l30.2 18"/>
+    </g>
+    <path id="star" d="M704.8 64l-12.9 9.5c-1.6 1-2.8 1.7-4.3 1.7-3.1 0-5.7-2.8-5.7-5.9 0-2.6 2.1-4.5 4-5.3l15.2-6.6-15.2-6.7c-2.1-.9-4-2.8-4-5.3 0-3.1 2.8-5.7 5.9-5.7 1.6 0 2.6.5 4.1 1.7l12.9 9.5-1.7-15.4c-.5-3.6 1.9-6.6 5.3-6.6 3.5 0 5.9 2.8 5.3 6.4L712 50.8l12.9-9.5c1.6-1.2 2.8-1.7 4.3-1.7 3.1 0 5.7 2.6 5.7 5.7 0 2.8-1.9 4.5-4 5.3l-15.2 6.7 15.2 6.6c2.1.9 4 2.8 4 5.5 0 3.1-2.8 5.7-5.9 5.7-1.4 0-2.6-.7-4.1-1.7L712 63.9l1.7 15.4c.5 3.6-1.9 6.6-5.3 6.6s-5.9-2.8-5.3-6.4l1.7-15.5z"/>
+    <g id="zg">
+      <path id="lbracket" class="st7" d="M784.8 97.3l-26-12.7c-2.2-1-3.5-2.7-3.5-4.8v-.6c0-2.2 1.3-3.8 3.5-4.8l26-12.7c.7-.4 1.4-.6 2.2-.6 1.9-.1 3.5 1.6 3.5 3.7 0 1.7-.9 2.9-2.4 3.6l-23.7 11.1 23.7 11.2c1.5.7 2.4 2 2.4 3.7 0 2.2-1.7 3.7-3.8 3.7-.6-.2-1.3-.5-1.9-.8z"/>
+      <path id="rbracket" class="st7" d="M773.8 15.6l25.9 12.7c2.2 1 3.5 2.7 3.5 4.8v.6c0 2.2-1.3 3.8-3.5 4.8l-25.9 12.7c-.7.4-1.4.6-2.2.6-1.9.1-3.5-1.6-3.5-3.7 0-1.7.9-2.9 2.4-3.5l23.7-11.2-23.7-11.2c-1.5-.7-2.4-2-2.4-3.7 0-2.2 1.7-3.7 3.8-3.7.6.2 1.3.5 1.9.8z"/>
+      <path id="z1" d="M801 37.6c1.2-1.5 1.8-3 1.8-4.7v-.2c0-2.4-2.1-4.5-4.6-4.5H760c-2.4 0-4.5 2.1-4.5 4.6s2.1 4.5 4.5 4.5h29.1l-14.7 17.8 7.7 5.3L801 37.6z"/>
+      <path id="z2" d="M798.5 77.2h-30.2l14-16.8-7.7-5.3-17.9 21.7c-1.2 1.4-1.9 3-1.9 4.7v.2c0 2.4 2.2 4.5 4.6 4.5h39.2c2.5 0 4.6-2 4.6-4.5s-2.2-4.5-4.7-4.5z"/>
+    </g>
+    <g id="sg">
+      <path id="sl1" class="st0" d="M767.8 44.1v-.2c0-3.7 3.4-6.7 9.2-6.7 4.4 0 8.6 1.4 13 4.3.8.5 1.6.7 2.6.7 2.6 0 4.7-2 4.7-4.6 0-1.9-1-3.3-2.2-3.9-5.1-3.4-10.8-5.2-17.9-5.2-11.2 0-19.2 6.7-19.2 16.3v.2c0 10.1 6.5 13.7 17.9 16.6l4.8-8.7c-10.5-2.6-12.9-4.5-12.9-8.8z"/>
+      <path id="sl2" class="st0" d="M781.2 53c-.2 0-.3-.1-.5-.1l-4.8 8.7c.3.1.6.1.8.2 10.5 2.4 12.7 4.6 12.7 8.6v.2c0 4.2-3.9 7.1-10 7.1s-11.1-2.1-15.8-5.8c-.6-.5-1.5-.9-2.9-.9-2.6 0-4.7 2-4.7 4.6 0 1.6.8 3 1.9 3.8 6.3 4.7 13.5 7.1 21.2 7.1 11.8 0 20.1-6.3 20.1-16.8v-.2c0-9.4-6.1-13.6-18-16.5z"/>
+    </g>
+    <path id="kturn" d="M647.7 51.4c-2.7 0-4.9 2.2-4.9 5 0 2.7 2.2 4.9 4.9 4.9h11.7l8.9 9.2-23 18.2c-1.4 1-2.3 2.3-2.3 4.2 0 2.8 2.1 5 4.8 5 1.5 0 2.5-.6 3.5-1.4l23.5-19.1 16.9 17.5c1 1.1 2.2 1.8 3.7 1.8 2.4 0 4.6-1.8 4.6-4.6 0-1.8-.6-3-1.9-4.1l-27-26.6 23.8-.1c2.7 0 4.9-2.2 4.9-4.9 0-2.8-2.2-5-4.9-5h-47.2z"/>
+    <path id="bracket" d="M687.5 68.8c-1.1 0-4-.1-5.2-.1-5.3 0-7.6 1.9-7.8 6.8-.1 2.2-1.5 3.6-3.5 3.6-1.9 0-3.3-1.4-3.5-3.6-.1-4.9-2.5-6.8-7.8-6.8-1.2 0-4.1.1-5.2.1-7.1 0-11.5-3-14-14.1-.5-2.2.9-4 3-4 1.7 0 2.7 1.2 3 2.1 2.2 6.9 4.4 7.9 9.3 7.9 1.4 0 3.8-.1 5.3-.1 5.6 0 8.4 2.7 9.9 7.5 1.6-4.8 4.2-7.5 9.9-7.5 1.5 0 3.9.1 5.3.1 4.9 0 7.1-1 9.3-7.9.3-.9 1.2-2.1 3-2.1 2.1 0 3.5 1.7 3 4-2.5 11.1-7 14.1-14 14.1z"/>
+    <path id="repofill" class="st11" d="M551.4,36.7c0-3.9-3.1-7-7-7c-3.9,0-7,3.1-7,7c0,2.6,1.4,4.9,3.5,6.1v5.8l-10.6,11.7 l-10.6-11.7v-5.8c2.1-1.2,3.5-3.5,3.5-6.1c0-3.9-3.1-7-7-7s-7,3.1-7,7c0,2.6,1.4,4.9,3.5,6.1v8.6l14.1,15.5v6 c-2.1,1.2-3.5,3.5-3.5,6.1c0,3.9,3.1,7,7,7c3.9,0,7-3.1,7-7c0-2.6-1.4-4.9-3.5-6.1v-6l14.1-15.5v-8.6 C550,41.6,551.4,39.4,551.4,36.7z"/>
+    <path id="repodot3" class="st12" d="M544.7,32.9c1.9,0,3.5,1.6,3.5,3.5c0,1.9-1.6,3.5-3.5,3.5s-3.5-1.6-3.5-3.5 C541.2,34.5,542.8,32.9,544.7,32.9z"/>
+    <path id="repodot2" class="st12" d="M516.2,33.1c1.9,0,3.5,1.6,3.5,3.5c0,1.9-1.6,3.5-3.5,3.5c-1.9,0-3.5-1.6-3.5-3.5 C512.7,34.7,514.3,33.1,516.2,33.1z"/>
+    <path id="repodot1" class="st12" d="M530.3,75.7c1.9,0,3.5,1.6,3.5,3.5s-1.6,3.5-3.5,3.5c-1.9,0-3.5-1.6-3.5-3.5 S528.4,75.7,530.3,75.7z"/>
+    <path id="slash" class="st7" d="M807.1 80.3l41-50.2c.9-1.1 2.2-1.6 3.7-1.3 2 .3 3.4 1.9 3.1 3.5-.1.6-.4 1.1-.7 1.5L813.3 84c-.9 1.1-2.1 1.6-3.6 1.3-2-.3-3.5-1.9-3.2-3.5 0-.6.3-1.2.6-1.5z"/>
+    <path id="link" class="st0" d="M405.6 73.7c-1.4 1.1-1.6 3.2-.5 4.6l2.4 3c2.1 2.7 5.2 4.2 8.4 4.6 3.2.4 6.5-.5 9.2-2.6 2.6-2.1 4.3-5 4.6-8.3.4-3.3-.6-6.6-2.7-9.2L418.3 55c-5.4-6.7-12.3-8.4-17.6-4.2-1.4 1.1-1.7 3.2-.5 4.6 1.1 1.4 3.2 1.7 4.6.5 3.1-2.4 6.6 1 8.4 3.2l8.7 10.8c1 1.2 1.4 2.8 1.2 4.3-.2 1.6-1 3-2.2 3.9-2.6 2-6.3 1.6-8.4-.9l-2.4-3c-1.1-1.4-3.1-1.6-4.5-.5zm-25.5-32.3c-.4 3.3.6 6.6 2.7 9.2l9.3 11.6c2.9 3.6 6.1 5.6 9.3 5.9 2.6.3 5.3-.5 7.7-2.4 1.4-1.1 1.7-3.2.5-4.6-1.1-1.4-3.2-1.7-4.6-.5-1.1.8-3.6 2.8-7.8-2.5l-9.3-11.6c-1-1.2-1.4-2.8-1.3-4.3.2-1.6 1-2.9 2.2-3.9 2.3-1.8 5.6-2.5 7.8.2l3 3.7c1.1 1.4 3.2 1.6 4.6.5 1.4-1.1 1.6-3.2.5-4.6l-2.9-3.7c-4.2-5.2-11.3-5.7-17-1.3-2.7 2-4.3 5-4.7 8.3z"/>
+  </g>
+  <circle id="dotExpand" fill="#E18728" cx="503" cy="61" r="3.9"/>
+  <circle id="dotActivate" fill="#E18728" cx="503" cy="61" r="3.9"/>
+</svg>
+  </a>
+
+  <nav class="main-nav" id="main-nav">
+  <ul>
+    <li class="home">
+      <a href="/">
+        Blog
+      </a>
+    </li>
+    <li class="videos">
+      <a href="/video-screencasts/">
+        Videos
+      </a>
+    </li>
+    <li class="almanac">
+      <a href="/almanac/">
+        Almanac
+      </a>
+    </li>
+    <li class="snippets">
+      <a href="/snippets/">
+        Snippets
+      </a>
+    </li>  
+    <li class="forums">
+      <a href="/forums/">
+        Forums
+      </a>
+    </li>
+    <li class="shop">
+      <a href="/shop/">
+        Shop
+      </a>
+    </li>
+    <li class="lodge">
+      <a href="/lodge/">
+        Lodge
+      </a>
+    </li>
+    <li class="jobs">
+      <a href="/jobs/">
+        Jobs
+      </a>
+    </li>
+    <li class="close-menu" id="close-menu">
+      <a href="#menu-closed">
+        &#215; Collapse
+      </a>
+    </li>
+    <li class="show-menu" id="open-menu">
+      <a href="#menu">
+        &#9776; Menu
+      </a>
+    </li>
+  </ul>
+</nav>
+  <section class="search" role="search">
+
+    <form id="search-form" action="/search-results/">
+
+      <div class="flexy-search">
+        <input aria-labelledby="search-label" id="q" required type="search" name="q" class="search-field" value="" placeholder="e.g. flexbox">
+        <label for="q" id="search-label">
+          <span class="screen-reader">Search</span>
+          <svg viewBox="0 0 100 100" class="shape-search">
+            <use xlink:href="#shape-search"></use>
+          </svg>
+        </label>
+      </div>
+      
+    </form>
+
+  </section>
+
+  <div class="user-account-area">
+      
+    <img alt='' src='https://secure.gravatar.com/avatar/?s=46&#038;d=mm&#038;r=pg' srcset='https://secure.gravatar.com/avatar/?s=92&amp;d=mm&amp;r=pg 2x' class='avatar avatar-46 photo avatar-default' height='46' width='46' />
+    <ul class="user-dropdown">
+
+      
+      <li>
+        <a href="/wp-login.php">Log In</a>
+      </li>
+      <li>
+        <a href="/wp-login.php?action=register">Sign Up</a>
+      </li>
+
+            
+    </ul>
+
+  </div>
+
+</header>
+
+  <div class="page-wrap" id="page-wrap">
+
+<div class="main-and-sidebar-wrap">
+
+  <main class="main-col">
+
+    <header class="mega-header">
+
+      <h1 class="p-name">Useful :nth-child Recipes</h1>
+
+      <p class="author-byline">
+        <span class="author-byline-inside">
+          <a href="https://css-tricks.com/author/chriscoyier/">
+            <img alt='' src='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=200&#038;d=mm&#038;r=pg' srcset='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=400&amp;d=mm&amp;r=pg 2x' class='avatar avatar-200 photo' height='200' width='200' />            <span class="p-author">
+              Chris Coyier            </span>
+          </a>
+          <span class="slashes">//</span>
+          <time datetime="2011-06-16" class="dt-published">
+            June 16, 2011          </time>
+        </span>
+      </p>
+
+    </header>
+
+    <div class="module-main blog-posts no-relative">
+
+      <article id="post-9657" role="main" class="instapaper_body h-entry e-content">
+
+          <div class="google-ad">
+    <div id="bsap_1279518" class="bsarocks bsap_3469a2a501a9e18091036aa0c89f9dcb"></div>
+  </div>
+
+        <p>I get a little giddy when I come across perfect uses for <code>:nth-child</code> or <code>:nth-of-type</code> (<a href="http://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/">read about the difference</a>). The better you understand them, the more css nerdgasms you get to have!</p>
+<p>In these simple "recipes" (really: expressions) I'll arbitrarily use a flat list of list items and randomly chosen numbers. But it should be fairly obvious how to alter them to get similar selections. </p>
+<h3>Select Only the Fifth Element</h3>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/5.png" alt="" title="5" width="570" height="93" class="alignnone size-full wp-image-9760" /></p>
+<pre rel="CSS"><code>li:nth-child(5) {
+    color: green;   
+}</code></pre>
+<p>To select the first element, you can use :first-child, or I bet you can guess how to alter the above to do it as well. </p>
+<h3>Select All But The First Five</h3>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/6-10.png" alt="" title="6-10" width="570" height="93" class="alignnone size-full wp-image-9761" /></p>
+<pre rel="CSS"><code>li:nth-child(n+6) {
+    color: green;   
+}</code></pre>
+<p>If there were more than 10 elements here, it would select all of them beyond 5.</p>
+<h3>Select Only The First Five</h3>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/1-5.png" alt="" title="1-5" width="570" height="93" class="alignnone size-full wp-image-9762" /></p>
+<pre rel="CSS"><code>li:nth-child(-n+5) {
+    color: green;   
+}</code></pre>
+<h3>Select Every Fourth, Starting At The First</h3>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/159.png" alt="" title="159" width="570" height="93" class="alignnone size-full wp-image-9763" /></p>
+<pre rel="CSS"><code>li:nth-child(4n-7) {  /* or 4n+1 */
+    color: green;   
+}</code></pre>
+<h3>Select Only Odd or Even</h3>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/odd.png" alt="" title="odd" width="570" height="93" class="alignnone size-full wp-image-9764" /></p>
+<pre rel="CSS"><code>li:nth-child(odd) {
+    color: green;   
+}</code></pre>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/even.png" alt="" title="even" width="570" height="93" class="alignnone size-full wp-image-9765" /></p>
+<pre rel="CSS"><code>li:nth-child(even) {
+    color: green;   
+}</code></pre>
+<h3>Select The Last Element</h3>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/last.png" alt="" title="last" width="570" height="93" class="alignnone size-full wp-image-9766" /></p>
+<pre rel="CSS"><code>li:last-child {
+    color: green;
+}</code></pre>
+<p>Selects the 10th because we have 10 elements here, but if there was 8 it would select the 8th, or if there were 1,290 it would select the 1,290th.</p>
+<h3>Select the Second to Last Element</h3>
+<p><img src="//css-tricks.com/wp-content/uploads/2011/06/9.png" alt="" title="9" width="570" height="93" class="alignnone size-full wp-image-9767" /></p>
+<pre rel="CSS"><code>li:nth-last-child(2) {
+    color: green;
+}</code></pre>
+<p>Selects the 9th because we have 10 elements here, but if there were 30 elements it would select the 29th.</p>
+<h3>Wanna play?</h3>
+<p><a href="http://css-tricks.com/examples/nth-child-tester/">Try the tester.</a></p>
+<h3>Browser Support</h3>
+<p>Interestingly enough, :first-child was supported by IE 7, but it's not until IE 9 where the rest of this stuff is supported. Other than IE there isn't much browser support concern, and if you are worried about IE, then use <a href="http://selectivizr.com/">Selectivizr</a>. If browser support stuff is interesting or important for you, definitely check out <a href="http://caniuse.com/">When can I use...</a> which tracks this stuff very well.</p>
+
+        
+      </article>
+
+    </div>
+
+          <div class="bsap-doubles">
+        <div id="bsap_1250418" class="bsarocks bsap_3469a2a501a9e18091036aa0c89f9dcb"></div>
+      </div>
+    
+          <div class="module-comments">
+        <section id="comments">
+
+
+
+  <h1 class="h2 comments-title">
+    Comments
+  </h1>
+
+  <ol class="commentlist group">
+    
+    <li class="comment even thread-even depth-1 buried" id="li-comment-96993">
+
+      <div class="grid group comment-wrap" id="comment-96993">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/ea4d7f20ca2b59f1f21e482322cf85ff?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/ea4d7f20ca2b59f1f21e482322cf85ff?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Aleare</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-96993"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T04:33:24-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Simply fully useful !! Thanks</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-96995">
+
+      <div class="grid group comment-wrap" id="comment-96995">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/645e038da8af810c53bf187f8a47ea8a?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/645e038da8af810c53bf187f8a47ea8a?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">ALex</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-96995"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T04:47:02-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice list, but am colorblind or are you mixing up green and red? Still, a nice list. Too bad IE doesn&#8217;t support this until IE9 (as you mentioned <a href="http://css-tricks.com/how-nth-child-works/" rel="nofollow">here</a>)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment even depth-2" id="li-comment-96998">
+
+      <div class="grid group comment-wrap" id="comment-96998">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/ed1776fb4ab3c990b3ee47c2a58029c6?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/ed1776fb4ab3c990b3ee47c2a58029c6?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Robbert</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-96998"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T04:59:27-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Actually Chris did you color with means the text is supposed to be green, and in the examples there is no text ^^.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt depth-2" id="li-comment-96999">
+
+      <div class="grid group comment-wrap" id="comment-96999">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/ed1776fb4ab3c990b3ee47c2a58029c6?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/ed1776fb4ab3c990b3ee47c2a58029c6?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Robbert</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-96999"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T04:59:51-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I mean red :P</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2" id="li-comment-97004">
+
+      <div class="grid group comment-wrap" id="comment-97004">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/ef2f342ca8b441984154f1d970be0636?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/ef2f342ca8b441984154f1d970be0636?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jack</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97004"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T05:26:34-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I caught that too, definitely there just to illustrate the situation but it was goofy to see a green ball and immediately read color: red!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment byuser comment-author-chriscoyier bypostauthor odd alt depth-2" id="li-comment-97007">
+
+      <div class="grid group comment-wrap" id="comment-97007">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Chris Coyier</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97007"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T05:31:37-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Ohhhh I get it. At first I was like what they heck are these guys talking about. I changed the word &#8220;red&#8221; to &#8220;green&#8221; just so it seems less weird. They are both just hypothetical.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-96996">
+
+      <div class="grid group comment-wrap" id="comment-96996">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/df2070ca58c840d32f19c16414c12ebc?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/df2070ca58c840d32f19c16414c12ebc?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jan-Marten</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-96996"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T04:48:41-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great article, Chris! I actually didn&#8217;t know nth-child accepted these values as parameters. I really need to fiddle around more with CSS3, since I don&#8217;t want to rely on it yet in production.</p>
+<p>A lot of kindergarten scenarios come to mind when looking at the odd numbered string of balls. Btw. Was it you who did that background trickery with textures and prime numbers? Maybe something for nth-child to solve?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-97011">
+
+      <div class="grid group comment-wrap" id="comment-97011">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/ed77c74c903a3dbcbbc9ce09e6f10866?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/ed77c74c903a3dbcbbc9ce09e6f10866?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Sam</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97011"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T06:19:46-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>For context, the prime number background article &#8211; <a href="http://designfestival.com/the-cicada-principle-and-why-it-matters-to-web-designers/" rel="nofollow">http://designfestival.com/the-cicada-principle-and-why-it-matters-to-web-designers/</a></p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-97015">
+
+      <div class="grid group comment-wrap" id="comment-97015">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/6f125f519f20c924a2995e7d2040b92b?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/6f125f519f20c924a2995e7d2040b92b?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Chris</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97015"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T07:27:30-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thanks for another great explanation Chris, if I&#8217;m not mistaken and correct me if I&#8217;m wrong but doesn&#8217;t jQuery already have most support for CSS3 pseudo selectors already built into Sizzle??</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment byuser comment-author-chriscoyier bypostauthor odd alt depth-2" id="li-comment-97016">
+
+      <div class="grid group comment-wrap" id="comment-97016">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Chris Coyier</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97016"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T07:35:36-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>It has :nth-child but not :nth-of-type. You can add all of them to jQuery with this: <a href="https://github.com/keithclark/JQuery-Extended-Selectors/blob/master/jquery-extra-selectors.js" rel="nofollow">https://github.com/keithclark/JQuery-Extended-Selectors/blob/master/jquery-extra-selectors.js</a></p>
+<p>If you are referring to the Selectivizr link at the bottom though, that&#8217;s different. That&#8217;s a library that just makes the actual CSS that you write work.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2 featured" id="li-comment-97041">
+
+      <div class="grid group comment-wrap" id="comment-97041">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/8e75de08afdc1e0fe9333e758d3c7249?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/8e75de08afdc1e0fe9333e758d3c7249?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Estelle</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97041"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T14:10:26-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>There are jQuery plugins to make browsers support selectors it doesn&#8217;t natively support like <a href="http://www.selectivizr.com" rel="nofollow">http://www.selectivizr.com</a>. jQuery has slightly different syntax for $(some_selectors). </p>
+<p>Check out <a href="http://standardista.com/jquery/#slcjQuery" rel="nofollow">http://standardista.com/jquery/#slcjQuery</a> (and lower on that page) for some jQuery only selectors.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt depth-2" id="li-comment-97056">
+
+      <div class="grid group comment-wrap" id="comment-97056">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/9e3e92366d82f660c1fccdce25534cc4?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/9e3e92366d82f660c1fccdce25534cc4?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Chris</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97056"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T19:23:14-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Ahh that makes more sense now</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-97017">
+
+      <div class="grid group comment-wrap" id="comment-97017">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/9215f8e1629bf8ad9932239cadd21a92?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/9215f8e1629bf8ad9932239cadd21a92?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Alex Russell</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97017"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T08:01:54-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Perhaps a gratuitous solution for IE, but you can also use Chrome Frame to enable this (and CSS gradients, and animations, and all the rest) there.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-97019">
+
+      <div class="grid group comment-wrap" id="comment-97019">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/15b0525dc342aae23a9d73d608344f6a?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/15b0525dc342aae23a9d73d608344f6a?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Thomas McGee</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97019"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T08:05:23-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thanks for this resource! I&#8217;ve been looking for a guide that laid out clearly the different options for :nth-child selectors and this is the best I&#8217;ve seen. :nth-child  are a vital piece of good CSS and I&#8217;ll definitely be taking advantage of it. Thanks again!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-97028">
+
+      <div class="grid group comment-wrap" id="comment-97028">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/d90572e3ae57526578c1d2b9b8d9a8bc?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/d90572e3ae57526578c1d2b9b8d9a8bc?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Joe Twumasi</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97028"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T11:21:58-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Chris is there any fix for lower IE versions ? </p>
+<p>Thanks</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment byuser comment-author-chriscoyier bypostauthor odd alt depth-2" id="li-comment-97042">
+
+      <div class="grid group comment-wrap" id="comment-97042">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Chris Coyier</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97042"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T15:09:23-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Yeah man check out the last paragraph of the article.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2" id="li-comment-97065">
+
+      <div class="grid group comment-wrap" id="comment-97065">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/e6c31d18052706ff3f5fe7e496031e47?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/e6c31d18052706ff3f5fe7e496031e47?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Hao Chan</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97065"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T21:16:31-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>ok!!!<br />
+The last  &#8220;Browser Support&#8221;</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-97046">
+
+      <div class="grid group comment-wrap" id="comment-97046">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/794f146f1e739414fed2468d562e4ff8?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/794f146f1e739414fed2468d562e4ff8?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Richard</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97046"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T16:12:04-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>i&#8217;m still fresh to this method but still giving it a fair suck of the sav and i think i&#8217;ve only scratched the surface.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-97066">
+
+      <div class="grid group comment-wrap" id="comment-97066">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/e6c31d18052706ff3f5fe7e496031e47?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/e6c31d18052706ff3f5fe7e496031e47?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Hao Chan</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97066"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-16T21:18:29-04:00">June 16, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Good job!!<br />
+I can be translated into Chinese release?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-97077">
+
+      <div class="grid group comment-wrap" id="comment-97077">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/f804df10ff12260a5ce133c8ea7f537b?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/f804df10ff12260a5ce133c8ea7f537b?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ethan</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97077"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T01:32:22-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great! It&#8217;s very useful for me.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-97078">
+
+      <div class="grid group comment-wrap" id="comment-97078">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/64777202bb6d589a6189647c38bfc739?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/64777202bb6d589a6189647c38bfc739?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Gary</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97078"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T01:40:44-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thank you so much &#8211; I&#8217;ve been looking for how to use nth-child!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-97086">
+
+      <div class="grid group comment-wrap" id="comment-97086">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/913884ce5021f4bd52ef74e2cd0975b2?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/913884ce5021f4bd52ef74e2cd0975b2?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Lucas del Rio</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97086"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T04:09:47-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Chris this article was great, so easy to understand and so usefull.<br />
+By the way, I know you&#8217;ve been watching your stats to know which resolution your visitors use. In this right moment I&#8217;m using a Blackberry 9800 and I can&#8217;t believe how well your web fits to the screen and how well it works, great work!! I didn&#8217;t need to use horizontal scrollbar all along the article as happens with most of this blogs, so thank you for that :)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  <ul class="children">
+
+    <li class="comment even depth-2" id="li-comment-97097">
+
+      <div class="grid group comment-wrap" id="comment-97097">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/e41b59b12b7e51118ef8864b771f17ae?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/e41b59b12b7e51118ef8864b771f17ae?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Rob</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97097"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T08:26:34-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I believe that is due to the media queries in their CSS.  The page collapses depending on the size of the window/viewport.  Load the main page in a desktop web browser  and reduce the horizontal size of the window, the page readjusts to fit a large number of widths.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-97088">
+
+      <div class="grid group comment-wrap" id="comment-97088">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/d95536527e2a11f685098ee8b61e76df?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/d95536527e2a11f685098ee8b61e76df?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Robert</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97088"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T04:51:52-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Great article Chris, there is some stuff I didn&#8217;t know yet!</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-97092">
+
+      <div class="grid group comment-wrap" id="comment-97092">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/c5e13dd8e1a318747e9700eb5ecd0a8b?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/c5e13dd8e1a318747e9700eb5ecd0a8b?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Lintzy</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97092"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T06:25:05-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hi Chris,</p>
+<p>just want to say &#8220;thank you&#8221;. Your articles are real lifesaver. And it is so fantastic and awesome, to find all necessary css-tricks on one website.</p>
+<p>THANK YOU!</p>
+<p>Angelika (aka Lintzy)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-97093">
+
+      <div class="grid group comment-wrap" id="comment-97093">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/e1f5f6dc6e509c4abf6b9b5bb637a29a?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/e1f5f6dc6e509c4abf6b9b5bb637a29a?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jamy</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97093"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T06:43:20-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>IE 7 only partially supports <code>:first-child</code>. If an HTML comment precedes the first element, the <code>:first-child</code> selector won&#8217;t take effect.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-97099">
+
+      <div class="grid group comment-wrap" id="comment-97099">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/d890de547a1de5b588e1b469040682e8?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/d890de547a1de5b588e1b469040682e8?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Some guy</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97099"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T08:36:51-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Even though old browsers doesn&#8217;t support these properties, you can still use jQuery.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-97107">
+
+      <div class="grid group comment-wrap" id="comment-97107">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/9a8c63f14f96052f64523b70c6677216?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/9a8c63f14f96052f64523b70c6677216?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Sridhar</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97107"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-17T10:39:36-04:00">June 17, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice feature list. IE always disappoints as usual</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-97205">
+
+      <div class="grid group comment-wrap" id="comment-97205">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/3e5826e924d052ec4e54a6724b623451?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/3e5826e924d052ec4e54a6724b623451?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ohne Mitleid</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97205"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-18T12:08:06-04:00">June 18, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thank you Chris! I share your enthusiasm for new :nth-child usage!</p>
+<p>I don&#8217;t really have a site to show you, only some CSS styles I have worked out. Two new uses for me. I needed CSS to exhibit different behaviors on hover to display text to the left and then at the halfway point, to the right. Rather than going into a lengthy explanation of what I actually did, you can look at the code and how I applied it <a href="http://userstyles.org/styles/48331/ff4-bookmark-quicktip?r=1306299620" rel="nofollow">here</a>. </p>
+<p>The second example uses odd/even for something aside from coloring alternating columns/rows in a table layout. I took a column of screenshots, positioned them left and right (odd/even) then used odd/even hover to zoom the image based on the odd/even so the zoom would display correctly. That one is <a href="http://userstyles.org/styles/48329/abandonia-quiz-zoom-english-version" rel="nofollow">here </a>.</p>
+<p>If no one else can see how Chris&#8217; explanation of how all of the various nth-child examples can be usefully tied together, think about this: a volume control or other slider. First child, speaker highlighted, volume max. Second to the last child, nth-last-child(2), highlighted again, minimum volume. Last-child, speaker mute (usually displayed as the red cross out). I can&#8217;t wait to code it!</p>
+<p>Please show mercy if I&#8217;m not quite up to speed on this. I realize it might not cover every browser available. I&#8217;ve only been at it for about 1-1/2 months.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-97346">
+
+      <div class="grid group comment-wrap" id="comment-97346">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/02e404d7e581f79707b1e513e5d18b98?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/02e404d7e581f79707b1e513e5d18b98?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Will</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97346"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-20T03:44:57-04:00">June 20, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Nice article. </p>
+<p>I too love using :nth-child now when I&#8217;m coding up sites. Less code bloat and its surprising how many situations it comes in handy for.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-97347">
+
+      <div class="grid group comment-wrap" id="comment-97347">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/fa2e035b822ed247a3d876d238791fb5?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/fa2e035b822ed247a3d876d238791fb5?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Niall</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97347"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-20T04:15:36-04:00">June 20, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hey Chris<br />
+Thanks for the heads up on Selectivizr, I&#8217;ve just used the wordpress plug-in version for my :nth-child navbar &#8211; works a treat</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-97711">
+
+      <div class="grid group comment-wrap" id="comment-97711">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/10d4a79e9990e72a1767df12b23829eb?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/10d4a79e9990e72a1767df12b23829eb?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Mark Wassmer</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-97711"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-23T15:18:28-04:00">June 23, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Selectivizr (<a href="http://selectivizr.com/" rel="nofollow">http://selectivizr.com/</a>) is a great utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8, very much worth having a look at, Nice JS for PE</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1 featured" id="li-comment-98171">
+
+      <div class="grid group comment-wrap" id="comment-98171">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/747020301e8225e225e426bb120a1d05?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/747020301e8225e225e426bb120a1d05?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Mike Voermans</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-98171"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-06-28T13:55:06-04:00">June 28, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Just to expand on this a bit &#8211; I think it would be nice to add another demo to show how to go backwards from the end of a list. You have :nth-last-child(2) &#8211; but to select the last 3 elements (no matter the size of the list) you would need: :nth-last-child(-n+3). Thanks for another great demo.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-98658">
+
+      <div class="grid group comment-wrap" id="comment-98658">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/d235d496ed9cc61990f308129c6c17f7?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/d235d496ed9cc61990f308129c6c17f7?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Adnan</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-98658"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-07-02T23:37:23-04:00">July 2, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Very Nice&#8230;</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-98763">
+
+      <div class="grid group comment-wrap" id="comment-98763">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/40abfe6fe69b9b8c481959af79935a41?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/40abfe6fe69b9b8c481959af79935a41?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Michelle J Flynn</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-98763"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2011-07-04T04:42:02-04:00">July 4, 2011</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Best article I&#8217;ve seen on this! Thanks Chris.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-1237293">
+
+      <div class="grid group comment-wrap" id="comment-1237293">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/e2ba75f9fafc9113f393a25397fd9b6c?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/e2ba75f9fafc9113f393a25397fd9b6c?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Mr. Slayer</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-1237293"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2014-03-03T14:00:56-05:00">March 3, 2014</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I stumbled across this page trying to see if the <code>:nth-child</code> selector could be used to style a range of columns in a table (i.e. columns 4-6). I was able to accomplish the task using a combination of <code>:nth-child</code> and <code>:nth-last-child</code>. To mimic the provided examples, this would be something like:</p>
+<pre><code>li:nth-child(n+4):nth-last-child(n+5)
+</code></pre>
+<p>Figured I would post this in case anyone else is looking for a &#8220;nth-child range&#8221; selector.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-1581709">
+
+      <div class="grid group comment-wrap" id="comment-1581709">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/a5ad1c97b81f2b75ec531b6adc1f18e3?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/a5ad1c97b81f2b75ec531b6adc1f18e3?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Guri</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-1581709"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2014-05-26T18:55:16-04:00">May 26, 2014</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thanks for the cool css tutorial. I&#8217;m trying to do something different, I want to select every 4 div elements<br />
+like 1-4 have different background, 5-8 have different background, 9-12 have same as 1-4, 13-16 have same as 5-8. Please help me how to accomplish this. Note:  total number of div is variable.<br />
+thanks</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-1582676">
+
+      <div class="grid group comment-wrap" id="comment-1582676">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt='' src='https://secure.gravatar.com/avatar/773ffa5324af33eb27ce42e1978bd2bb?s=160&#038;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&#038;r=pg' srcset='https://secure.gravatar.com/avatar/773ffa5324af33eb27ce42e1978bd2bb?s=320&amp;d=https%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png&amp;r=pg 2x' class='avatar avatar-160 photo' height='160' width='160' />        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Brian</div> <div class="comment-time"><a href="https://css-tricks.com/useful-nth-child-recipies/#comment-1582676"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2014-06-14T08:15:10-04:00">June 14, 2014</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>So I&#8217;d like to be able to hide a certain amount of text inside of a paragraph when it comes to a certain breakpoint. I assume the method mentioned here wouldn&#8217;t accomplish that, right? Is there a method that would perform that via css3 or is that only done in PHP or JS?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+  </li><!-- #comment-## -->
+  </ol>
+
+
+
+<div class="comments-closed">
+  This comment thread is closed. If you have important information to share, please <a href="/contact/">contact us</a>.
+</div>
+
+
+</section>      </div>
+    
+  </main>
+
+      <aside class="entry-unrelated sidebar">
+
+  
+  
+  <div class="module module-jobs">
+
+    <h4>Job Board</h4>
+
+    
+    
+    
+    <ul class="job-list">
+
+            <li>
+                <a href="http://codepen.io/url/job/ngabNZ">
+          <strong>
+            Ramsey Solutions, A Dave Ramsey Company           </strong>
+          is hiring a
+          Front End Developer        </a>
+      </li>
+            <li>
+                <a href="http://codepen.io/url/job/ZOAAyn">
+          <strong>
+            ZEBRADOG          </strong>
+          is hiring a
+          Digital Media Designer/UI Designer         </a>
+      </li>
+            <li>
+                <a href="http://codepen.io/url/job/rAEEqr">
+          <strong>
+            MINDBODY Inc.          </strong>
+          is hiring a
+          Sr. UI Developer        </a>
+      </li>
+      
+    </ul>
+
+    <div class="button-wrap">
+      <a href="/jobs/" class="button">See More Jobs</a>
+      &nbsp;
+      <a href="http://codepen.io/jobs/post/" class="button button-bold">Post a Job</a>
+    </div>
+
+  </div>
+
+  <div class="module module-media-temple">
+
+    <h4>Web Hosting</h4>
+
+    <p>We use and recommend <a href="http://bit.ly/1O3LAHG">Media Temple</a> web hosting. CSS-Tricks has been on Media Temple hosting since day one and they have helped me tremendously along the way. Use coupon code <strong>CSSTRICKS</strong> to save 20% for the first <em>year.</em></p>
+
+    <a href="http://bit.ly/1O3LAHG" class="button">
+      Save 20% on Web Hosting
+    </a>
+
+  </div>
+
+  <a href="https://ad.doubleclick.net/ddm/clk/303181152;128762502;s" class="module module-ad wufoo-ad-6">
+  <svg viewBox="0 0 612 612">
+    <rect x="151.96" y="433.3" width="307.69" height="92.41" rx="5" ry="5" fill="#7EC4E1" />
+    <g class="wufoo-logo">
+      <path id="w" d="M106,177.61L61.82,78.31l29.92-5.82,13.52,37.39c4.19,11.67,8.74,25.19,12.51,35.5l0.31-.06c-0.74-12-1-24.93-1.16-38l-0.81-39.54L145.87,62l14.28,38.84c4.16,11.52,7.62,21.89,11.29,33.34l0.31-.06C171,122.2,170.49,109.51,170,97L168.7,57.51,196.92,52l-5.37,108.93-30.38,5.91L146.3,127.5c-3.31-8.8-6.59-18.25-10.38-30.31l-0.31.06c0.7,12.67,1.21,22.65,1.16,32.27l0,42.09Z"
+        stroke="#231f20" />
+      <path id="u" d="M231.82,81.64l-8.34,59.42c-2.23,15.87,1.95,25.65,13,27.2,11.2,1.57,17.8-5.91,20.14-22.55l8.34-59.42,28.16,4L285,148.11c-4.54,32.36-23,46.42-52.41,42.29-28.78-4-41.66-21.87-36.92-55.63l8-57.09Z" stroke="#231f20" />
+      <path id="f" d="M286.14,65.84l67.77-5.65,1.92,23-39.44,3.29L318,106.05,355.11,103l1.9,22.85-37.09,3.09L323.26,169l-28.33,2.36Z" stroke="#231f20" />
+      <path id="o-1" d="M461,130.16c0,34.1-20.43,55.78-53.11,55.78-32.84,0-50.91-24.67-50.91-54.05,0-30.8,20.27-55.31,52.64-55.31C443.75,76.58,461,101.88,461,130.16Zm-74,1.26c0,19.8,8.64,32.06,22.31,32.06S431,150.12,431,131.1C431,112.88,422.85,99,409.18,99,395.67,99,387,111.93,387,131.42Z"
+        stroke="#231f20" />
+      <path id="o-2" d="M550.18,104.47c0,34.1-20.43,55.78-53.11,55.78-32.84,0-50.91-24.67-50.91-54.05,0-30.8,20.27-55.31,52.64-55.31C532.9,50.89,550.18,76.19,550.18,104.47Zm-74,1.26c0,19.8,8.64,32.06,22.31,32.06s21.68-13.36,21.68-32.37c0-18.23-8.17-32.06-21.84-32.06C484.81,73.36,476.17,86.25,476.17,105.73Z"
+        stroke="#231f20" />
+    </g>
+
+    <rect x="60" y="331" width="490" height="63" fill="#fff" stroke="#231f20" />
+
+    <text transform="translate(59 315)" font-size="31" fill="#231f20" font-weight="700">Build custom web forms easily.</text>
+    <text transform="translate(236.91 493.1)" font-size="40.76" fill="white" font-weight="700">Sign Up</text>
+    <text transform="translate(77 371)" font-size="31" fill="#969696">Let's get started!</text>
+
+    <g id="dino">
+      <path fill="#E41E26" d="M533.6,232.7c-0.3-0.1-0.6-0.2-0.9-0.3C533,232.5,533.3,232.6,533.6,232.7z M535.1,233.1
+		c-0.3,0-0.6-0.1-0.9-0.2C534.5,233,534.7,233,535.1,233.1z M536.6,233.2c-0.3,0-0.7,0-1-0.1C535.9,233.2,536.3,233.2,536.6,233.2z
+		 M531.2,231.7c0.3,0.1,0.6,0.3,0.8,0.4C531.8,232,531.5,231.8,531.2,231.7z M538.6,233.2c-0.5,0.1-1,0.1-1.5,0.1
+		C537.6,233.3,538.1,233.3,538.6,233.2z M528.4,229.9c0.3,0.2,0.6,0.4,0.8,0.6C528.9,230.3,528.7,230.1,528.4,229.9z M524.2,226.1
+		c0.3,0.3,0.6,0.6,0.9,0.9C524.8,226.7,524.5,226.4,524.2,226.1z M527,228.8c0.3,0.2,0.6,0.5,0.8,0.7
+		C527.5,229.2,527.3,229,527,228.8z M525.6,227.5c0.3,0.3,0.6,0.5,0.8,0.8C526.1,228,525.9,227.8,525.6,227.5z M518.7,219.4
+		c0.3,0.5,0.7,0.9,1,1.4C519.4,220.3,519.1,219.9,518.7,219.4z M517.4,217.4c0.4,0.5,0.7,1.1,1.1,1.6
+		C518.1,218.5,517.8,218,517.4,217.4z M520.1,221.2c0.3,0.4,0.6,0.8,0.9,1.2L520.1,221.2z M521.4,223c0.3,0.4,0.6,0.8,0.9,1.1
+		C522,223.7,521.7,223.3,521.4,223z M522.8,224.6c0.3,0.3,0.6,0.7,0.9,1C523.4,225.2,523.1,224.9,522.8,224.6z M529.8,230.9
+		c0.3,0.2,0.6,0.3,0.8,0.5C530.4,231.2,530.1,231,529.8,230.9z" />
+      <path fill="#8EC23F" d="M536.6,233.2c-0.3,0-0.7,0-1-0.1C535.9,233.2,536.3,233.2,536.6,233.2z M535.1,233.1
+		c-0.3,0-0.6-0.1-0.9-0.2C534.5,233,534.7,233,535.1,233.1z M533.6,232.7c-0.3-0.1-0.6-0.2-0.9-0.3
+		C533,232.5,533.3,232.6,533.6,232.7z M531.2,231.7c0.3,0.1,0.6,0.3,0.8,0.4C531.8,232,531.5,231.8,531.2,231.7z M538.6,233.2
+		c-0.5,0.1-1,0.1-1.5,0.1C537.6,233.3,538.1,233.3,538.6,233.2z M525.6,227.5c0.3,0.3,0.6,0.5,0.8,0.8
+		C526.1,228,525.9,227.8,525.6,227.5z M524.2,226.1c0.3,0.3,0.6,0.6,0.9,0.9C524.8,226.7,524.5,226.4,524.2,226.1z M528.4,229.9
+		c0.3,0.2,0.6,0.4,0.8,0.6C528.9,230.3,528.7,230.1,528.4,229.9z M522.8,224.6c0.3,0.3,0.6,0.7,0.9,1
+		C523.4,225.2,523.1,224.9,522.8,224.6z M521.4,223c0.3,0.4,0.6,0.8,0.9,1.1C522,223.7,521.7,223.3,521.4,223z M517.4,217.4
+		c0.4,0.5,0.7,1.1,1.1,1.6C518.1,218.5,517.8,218,517.4,217.4z M518.7,219.4c0.3,0.5,0.7,0.9,1,1.4
+		C519.4,220.3,519.1,219.9,518.7,219.4z M520.1,221.2c0.3,0.4,0.6,0.8,0.9,1.2L520.1,221.2z M527,228.8c0.3,0.2,0.6,0.5,0.8,0.7
+		C527.5,229.2,527.3,229,527,228.8z M529.8,230.9c0.3,0.2,0.6,0.3,0.8,0.5C530.4,231.2,530.1,231,529.8,230.9z" />
+
+      <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="643.465" y1="316.6403" x2="597.6864" y2="82.4081" gradientTransform="matrix(0.9533 -0.3021 0.3021 0.9533 -50.5851 215.0953)">
+        <stop offset="6.000000e-03" style="stop-color:#1E7086" />
+        <stop offset="0.176" style="stop-color:#33839D" />
+        <stop offset="0.348" style="stop-color:#4192B1" />
+        <stop offset="0.473" style="stop-color:#4699BA" />
+        <stop offset="0.613" style="stop-color:#4293B2" />
+        <stop offset="0.792" style="stop-color:#3685A0" />
+        <stop offset="0.991" style="stop-color:#207187" />
+        <stop offset="1" style="stop-color:#1E7086" />
+      </linearGradient>
+      <path fill="url(#SVGID_2_)" d="M639.5,190.8c-3.4-36.5,17.6-118.2-108.5-109.7l0,0c0,0-23.1,1-21.9,23.3
+		c1.2,22.4,6.2,36.9,9.6,50.4c0,0-21.8,20.1-16.1,33.8c5.7,13.7,20.7,46.7,35.9,44.6c15.3-2.1,48.4-15.3,61.4-23.1
+		c0,0,7,72.4,9.4,99.9c0.7,7.9,2.1,22.4,5.2,41.2c18.6-9.2,37.3-18.3,56.1-27.2C654.3,275.8,641.9,216.3,639.5,190.8z" />
+
+      <ellipse transform="matrix(0.9533 -0.3021 0.3021 0.9533 -15.9028 180.912)" fill="#FFFFFF" cx="576.9" cy="141.9" rx="13" ry="22.9" />
+
+      <ellipse transform="matrix(0.9533 -0.3021 0.3021 0.9533 -16.5344 179.6383)" fill="#231815" cx="572.5" cy="143.3" rx="8.3" ry="14.7" />
+      <path fill="#85BFD2" d="M621.6,237.7c-1.1-8.9-9.4-42.7-11.6-46.2c-2.1-3.4-4.9-18.6-47.2,7.1c-31.2,18.9-42.9,18.3-46.8,16.7
+		c6.5,10.3,14.5,18.9,22.5,17.8c15.2-2.1,48.4-15.3,61.4-23.1c0,0,7,72.4,9.4,99.9c0.7,7.9,2.1,22.4,5.2,41.2
+		c8.1-4,16.2-8,24.3-11.9C627.4,287.8,622.2,242.4,621.6,237.7z" />
+      <g opacity="0.6">
+
+        <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="506.196" y1="467.0849" x2="553.5162" y2="428.8841" gradientTransform="matrix(0.9533 -0.3021 -0.3021 -0.9533 134.293 798.5026)">
+          <stop offset="0" style="stop-color:#7AB3C4" />
+          <stop offset="0.87" style="stop-color:#7AB3C4" />
+          <stop offset="1" style="stop-color:#7AB3C4" />
+        </linearGradient>
+        <path fill="url(#SVGID_3_)" d="M517.3,217.2c-0.4-0.6-0.8-1.2-1.2-1.8c0,0,0,0,0,0C516.5,216,516.9,216.6,517.3,217.2z" />
+
+        <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="553.1611" y1="525.1908" x2="600.4362" y2="487.0253" gradientTransform="matrix(0.9533 -0.3021 -0.3021 -0.9533 134.293 798.5026)">
+          <stop offset="0" style="stop-color:#7AB3C4" />
+          <stop offset="0.87" style="stop-color:#7AB3C4" />
+          <stop offset="1" style="stop-color:#7AB3C4" />
+        </linearGradient>
+        <path fill="url(#SVGID_4_)" d="M538.2,100c12.1-9.4,47.7-11.3,71-6c-16-9.9-40.5-15.4-78.2-12.9c0,0-23.1,1-21.9,23.3
+			s6.2,36.9,9.6,50.4c0,0-21.8,20.1-16.1,33.8c2.7,6.5,7.5,17.4,13.5,26.7c3.5,1.4,13,2,36.6-10.9c-0.4-1.7-1.2-4-2.6-6.8
+			c-6-11.7-16.1-20.8-6.2-35.3C553.8,147.8,524.3,110.8,538.2,100z" />
+      </g>
+      <path fill="#1E7086" d="M533.8,137.1c2.6,9.5,1.4,13-1,13.7c-2.4,0.7-5-1.8-7.6-11.3c-2.6-9.5-2.8-17.7-0.4-18.4
+		C527.1,120.5,531.2,127.6,533.8,137.1z" />
+
+      <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="681.5992" y1="201.3821" x2="624.5172" y2="323.9237" gradientTransform="matrix(0.9533 -0.3021 0.3021 0.9533 -50.5851 215.0953)">
+        <stop offset="0" style="stop-color:#7AB3C4" />
+        <stop offset="0.86" style="stop-color:#7AB3C4" />
+        <stop offset="1" style="stop-color:#7AB3C4" />
+      </linearGradient>
+      <path opacity="0.4" fill="url(#SVGID_5_)" enable-background="new    " d="M639.8,193.5c-3.4,3.6-9,11.7-7,23.6
+		c0,0,7.2,57.4,25.2,112.9c4.2-2,8.3-4,12.5-6C654.9,277.5,642.7,220.3,639.8,193.5z" />
+
+      <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="611.5856" y1="236.8385" x2="647.111" y2="236.8385" gradientTransform="matrix(0.9533 -0.3021 0.3021 0.9533 -50.5851 215.0953)">
+        <stop offset="0" style="stop-color:#4699BA" />
+        <stop offset="0.951" style="stop-color:#4699BA" />
+        <stop offset="1" style="stop-color:#4699BA" />
+      </linearGradient>
+      <path fill="url(#SVGID_6_)" d="M623.9,218.4c-3.2-25.8-11.1-40.6-11.1-40.6c3.7-7.1-2.9-17.7-2.9-17.7
+		c5.7,13.7-27.3,27.3-27.3,27.3l-0.2,0.9c23.7-10.1,25.8,0.5,27.6,3.3c2.1,3.4,10.5,37.3,11.6,46.2c0.6,4.7,5.8,50.1,17.2,101.6
+		c2.3-1.1,4.5-2.2,6.8-3.3C637.6,304.6,626.9,242.5,623.9,218.4z" />
+
+      <linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="540.0744" y1="428.1269" x2="622.0959" y2="428.1269" gradientTransform="matrix(0.9533 -0.3021 -0.3021 -0.9533 134.293 798.5026)">
+        <stop offset="0" style="stop-color:#FFFFFF" />
+        <stop offset="0.87" style="stop-color:#FFFFFF" />
+        <stop offset="1" style="stop-color:#FFFFFF" />
+      </linearGradient>
+      <path opacity="0.35" fill="url(#SVGID_7_)" enable-background="new    " d="M538.6,233.2c15.3-2.1,48.4-15.3,61.4-23.1
+		c0.3-11.9-18.7,0-33,3.6c-9.6,2.4-14-3.9-15.8-8.4c-22.5,12-31.6,11.4-35.1,10C522.6,225.7,530.5,234.3,538.6,233.2z" />
+
+      <linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="592.8458" y1="312.0763" x2="606.6599" y2="312.0763" gradientTransform="matrix(0.9533 -0.3021 0.3021 0.9533 -50.5851 215.0953)">
+        <stop offset="0" style="stop-color:#FFFFFF" />
+        <stop offset="1" style="stop-color:#FFFFFF" />
+      </linearGradient>
+      <path opacity="0.35" fill="url(#SVGID_8_)" enable-background="new    " d="M617.7,315.7l-8.1-1.9c0.8,8.3,2.2,21.3,4.8,37.4
+		c3.1-1.5,6.3-3.1,9.4-4.6C619.5,327.7,617.7,315.7,617.7,315.7z" />
+    </g>
+  </svg>
+</a>
+
+  <div class="module module-poll">
+    <h4>Poll</h4>
+    <div id="polls-55" class="wp-polls">
+	<form id="polls_form_55" class="wp-polls-form" action="/index.php" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_55_nonce" name="wp-polls-nonce" value="eb1eacac17" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="55" /></p>
+		<h4>What is your preferred nomenclature here?</h4>
+
+<div id="polls-55-ans" class="wp-polls-ans">
+
+<ul class="wp-polls-ul group">
+		<li class="group"><input type="radio" id="poll-answer-309" name="poll_55" value="309" /> <label for="poll-answer-309">Front-End</label></li>
+		<li class="group"><input type="radio" id="poll-answer-310" name="poll_55" value="310" /> <label for="poll-answer-310">Front End</label></li>
+		<li class="group"><input type="radio" id="poll-answer-311" name="poll_55" value="311" /> <label for="poll-answer-311">Front-end</label></li>
+		<li class="group"><input type="radio" id="poll-answer-312" name="poll_55" value="312" /> <label for="poll-answer-312">Front end</label></li>
+		<li class="group"><input type="radio" id="poll-answer-313" name="poll_55" value="313" /> <label for="poll-answer-313">front-end</label></li>
+		<li class="group"><input type="radio" id="poll-answer-314" name="poll_55" value="314" /> <label for="poll-answer-314">front end</label></li>
+		<li class="group"><input type="radio" id="poll-answer-315" name="poll_55" value="315" /> <label for="poll-answer-315">frontend</label></li>
+		</ul>
+<p  class="voting-buttons"><input type="button" name="vote" value="   Vote   " class="button" onclick="poll_vote(55);" /> &nbsp; <a href="#ViewPollResults" onclick="poll_result(55); return false;" class="button" title="View Results Of This Poll">View Results</a></p>
+</div>
+	</form>
+</div>
+  </div>
+</aside>
+  
+</div>
+
+
+  </div>
+  <form action="//chriscoyier.us2.list-manage.com/subscribe/post?u=155f5a9ccc4e24c318130cace&amp;id=197f127a68" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+    <h4>We have a pretty good<sup>*</sup> newsletter.</h4>
+
+    <p class="mc-field-group">
+      <label for="mce-EMAIL" class="screen-reader">Email Address</label>
+      <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="your@email.com">
+      <input type="submit" value="Subscribe" name="Subscribe" id="mc-embedded-subscribe" class="button button-outline">
+    </p>
+    <div id="mce-responses" class="clear">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_155f5a9ccc4e24c318130cace_197f127a68" value=""></div>
+
+  </form>
+
+  <div class="footer-wrap">
+
+    <footer class="site-footer site-footer-colophon">
+
+      <div class="colophon">
+        <p>CSS-Tricks* is created, written by, and maintained by <a href="http://chriscoyier.net">Chris Coyier</a> and <a href="/about/">a team</a> of swell people. It is built on <a href="http://wordpress.org/">WordPress</a>, hosted by <a href="http://bit.ly/1n2DZjU">Media Temple</a>, and the assets are served by <a href="http://tracking.maxcdn.com/c/13088/3982/378">MaxCDN</a>. The fonts are Source Sans Pro and Source Code Pro. It is made possible through <a href="/advertising/">sponsorships</a> from products and services we like.</p>
+      
+        <p class="mega-big-time-warning"><small>*May or may not contain any actual "CSS" or "Tricks".</small></p>
+      </div>
+
+    </footer>
+
+    <footer class="site-footer site-footer-links">
+      <nav>
+        <a href="/contact/">Contact</a>
+        <a href="/about/">About</a>
+        <a href="/archives/">Archives</a>
+        <a href="/advertising/">Advertise</a>
+        <a href="/guest-posting/">Guest Posting</a>
+        <a href="/license/">License</a>
+        <a href="/shop/">Shop</a>
+        <a href="/subscription-options/">Subscribe</a>
+        <a href="http://feeds.feedburner.com/CssTricks">RSS</a>
+      </nav>
+    </footer>
+
+  </div>
+
+  <svg width="0" height="0" class="screen-reader">
+
+  <defs>
+
+    <path id="shape-link" d="M74.957.955h-15.139c-1.307 0-2.59.1-3.844.293l-.811.151c4.645 2.666 8.469 6.605 10.986 11.343h9.584c7.322 0 13.258 5.937 13.258 13.259 0 7.321-5.938 13.258-13.258 13.258h-16.555c-3.305 0-6.324-1.212-8.645-3.212l-.004.003-.002-.003c-.494-.414-.886-.802-1.206-1.148-.7-.764-1.011-1.303-1.011-1.303l.002-.003-.002-.003c-1.505-2.15-2.389-4.766-2.389-7.589 0-2.746.834-5.296 2.263-7.413l.127-.176c-1.736-1.473-3.978-2.367-6.429-2.367h-5.041c-1.325 3.052-2.067 6.416-2.067 9.956 0 3.538.737 6.903 2.061 9.955.244.562.509 1.11.792 1.651.237.449.482.896.746 1.332l.054.088.147.23c2.792 4.463 6.948 7.98 11.888 9.973.608.246 1.225.473 1.856.67l.104.031.318.09c.27.08.541.162.814.232l.01.003c2 .513 4.096.787 6.254.787h15.137c13.832.001 25.045-11.212 25.045-25.043s-11.211-25.045-25.043-25.045zM25.542 51.045h15.137c1.308 0 2.592-.102 3.846-.294l.811-.151c-4.646-2.664-8.47-6.604-10.987-11.342h-9.585c-7.322 0-13.257-5.936-13.257-13.259 0-7.322 5.935-13.257 13.257-13.257h16.555c3.304 0 6.323 1.212 8.645 3.212l.002-.003.002.003c.495.413.888.801 1.206 1.148.701.762 1.012 1.302 1.012 1.302l-.002.003.002.003c1.506 2.15 2.391 4.766 2.391 7.588 0 2.746-.835 5.297-2.264 7.412l-.127.176c1.735 1.475 3.979 2.369 6.428 2.369h5.043c1.324-3.053 2.064-6.417 2.064-9.957 0-3.539-.736-6.903-2.061-9.955-.244-.561-.51-1.111-.792-1.651-.237-.451-.481-.898-.746-1.332l-.054-.089-.146-.23c-2.792-4.463-6.949-7.981-11.888-9.973-.608-.245-1.226-.471-1.856-.67l-.103-.032-.318-.089c-.27-.081-.541-.162-.816-.232l-.009-.002c-2-.515-4.095-.788-6.255-.788h-15.135c-13.832 0-25.044 11.212-25.044 25.044 0 13.833 11.212 25.046 25.044 25.046z"/>
+
+    <path id="shape-search" d="M3.327,96.684C5.534,98.895,8.434,100,11.331,100s5.797-1.105,8.004-3.316l21.321-21.322
+    c5.83,3.188,12.393,4.897,19.223,4.897c10.721,0,20.798-4.172,28.379-11.752c15.646-15.644,15.646-41.105,0.002-56.755
+    C80.677,4.171,70.598,0,59.877,0C49.159,0,39.08,4.171,31.504,11.752c-7.581,7.576-11.756,17.655-11.756,28.376
+    c0,6.832,1.71,13.396,4.9,19.226L3.327,80.675C-1.096,85.094-1.096,92.266,3.327,96.684z M59.879,68.938
+    c-7.695,0-14.93-2.996-20.371-8.435c-5.443-5.442-8.439-12.677-8.439-20.375c0-7.695,2.996-14.933,8.439-20.372
+    c5.441-5.44,12.676-8.436,20.369-8.436c7.698,0,14.936,2.997,20.378,8.436c11.231,11.236,11.231,29.515,0,40.747
+    C74.812,65.941,67.575,68.938,59.879,68.938z"/>
+
+    <path id="shape-arrow-right" d="M0,49.993c0,7.387,6.007,13.394,13.396,13.394h40.691L42.898,74.407c-2.543,2.507-3.94,5.827-3.94,9.36
+    c0,3.539,1.407,6.863,3.952,9.364C45.428,95.616,48.809,97,52.402,97c3.6,0,6.978-1.384,9.516-3.891l34.159-33.623
+    c2.53-2.489,3.923-5.81,3.923-9.342v-0.307c0-3.545-1.4-6.867-3.943-9.358L61.914,6.869c-5.243-5.16-13.775-5.16-19.014,0
+    c-2.539,2.495-3.942,5.821-3.942,9.354c0,3.535,1.403,6.862,3.942,9.354L54.1,36.604H13.396C6.012,36.604,0.001,42.61,0,49.993z"/>
+
+  </defs>
+
+</svg>
+
+	<script>var pollsL10n = {"ajax_url":"https:\/\/css-tricks.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"0","show_fading":"1"};</script><script type='text/javascript' src='https://css-tricks.com/wp-includes/js/wp-embed.min.js?ver=4.4.2'></script>
+<script type='text/javascript' src='https://css-tricks.com/wp-content/uploads/minqueue-cache/minqueue-cb4ed8f2-2753356e.js'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201614.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.9.4',blog:'45537868',post:'9657',tz:'-7',srv:'css-tricks.com'} ]);
+	_stq.push([ 'clickTrackerInit', '45537868', '9657' ]);
+</script>
+
+  
+<script src='https://css-tricks.com/wp-content/themes/CSS-Tricks-14/js/min/global-min.js?v=1.6'></script>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68528-29', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+
+</html>

@@ -1,20 +1,21 @@
-<div class = "userLogin">
-<h1>Log In</h1>
-
-<form action="/login" method="post">
-
-	<div>
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-		<label>Email:</label>
-		<input type ="email" name= "email" placeholder="username">
+<div class="container" id="userLogin">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class= "loginTitle">Log In</h1>
+			<form action="/login" method="post">
+				<div class="email">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+					<label>Email:</label></br>
+					<input type ="email" name= "email" placeholder="Username">
+				</div>
+				<div class="password">
+					<label>Password:</label></br>
+					<input type="password" name="password" placeholder="Password">
+				</div>
+					<input class="loginSubmit" type="submit">
+			</form>
+			<button type="button">
+			<%= link_to "Create Account", '/users/new' %></button>
+		</div>
 	</div>
-
-	<div>
-		<label>Password:</label>
-		<input type="password" name="password" placeholder="password">
-	</div>
-		<input id="loginSubmit" type="submit">
-</form>
-
-<%= link_to "Create Account", '/users/new' %>
 </div>
