@@ -82,6 +82,7 @@ overflow-y:scroll; overflow-x:hidden; height:350px;
 	font-size: 1.2em;
 }
 .newPost {
+	font-family: 'Advent Pro', sans-serif;
 	color: black;
 	position: relative;
 	font-size: 20px;
@@ -94,6 +95,10 @@ overflow-y:scroll; overflow-x:hidden; height:350px;
     border-radius: 25px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+    button {
+    	margin-top: 1%;
+    	margin-bottom: 1%;
+    }
 }
 .postShowContentDiv {
 
