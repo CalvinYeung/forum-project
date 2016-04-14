@@ -19,7 +19,6 @@ nicole = User.create(first_name: "nicole", last_name: "lora", email: "8@gmail.co
 nancy = User.create(first_name: "nancy", last_name: "pan", email: "9@gmail.com", password_digest: "calvin")
 matthew = User.create(first_name: "matthew", last_name: "young", email: "10@gmail.com", password_digest: "calvin")
 christian = User.create(first_name: "christian", last_name: "thompson", email: "11n@gmail.com", password_digest: "calvin")
-guest = User.create(first_name: "guest", last_name: "guest", email: "guest@gmail.com", password_digest: "guest")
 
 
 
