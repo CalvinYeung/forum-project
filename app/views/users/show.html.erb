@@ -21,8 +21,9 @@
 		  <strong>Password:</strong>
 		  <%= @user.password %>
 		</p>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Check out the posts', posts_path %>
+		<button type="button">
+		<%= link_to 'Check out the posts', posts_path %>
+		</button>
 	</div>
 	</div>
 </div>
