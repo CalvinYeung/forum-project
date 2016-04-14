@@ -37,11 +37,12 @@
 
         <h1>Chit-Comments</h1>
         <hr class="hrBar">
-      
+        
+        <div class="postCommentBox">
           <% @post.comments.each do |reply| %>
             <p class="postComments"><%= reply.post_reply %></p>
           <% end %>
-        
+        </div>
           
       
           
